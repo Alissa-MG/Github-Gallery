@@ -24,5 +24,5 @@ const displayUserInfo = function (data) {
       <p><strong>Bio:</strong> ${}</p>
       <p><strong>Location:</strong> ${}</p>
       <p><strong>Number of public repos:</strong> ${}</p>
-    </div>`;
-}
+    </div>`
+};
