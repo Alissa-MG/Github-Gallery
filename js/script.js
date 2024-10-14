@@ -26,5 +26,5 @@ const displayUserInfo = function (data) {
       <p><strong>Location:South Texas</strong> ${data.location}</p>
       <p><strong>Number of public repos:23</strong> ${data.public_repos}</p>
     </div>`
-    overview.append(newDiv);
+    overviewSection.append(newDiv);
 };
