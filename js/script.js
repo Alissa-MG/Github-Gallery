@@ -1,6 +1,7 @@
 // profile information
 const overviewSection = document.querySelector(".overview");
 const username = "Alissa-MG";
+const repoList = document.querySelector(".repo-list");
 
 
 const gitUserInfo = async function () {
@@ -21,10 +22,18 @@ const displayUserInfo = function (data) {
             <img alt="user avatar" src=${data.avatar_url} />
         </figure>
     <div>
-      <p><strong>Name:Alissa Garcia</strong> ${data.name}</p>
-      <p><strong>Bio:I am a new mom looking to leave my full-time job for a skill that will alow me to spend more time with my twins. </strong> ${data.bio}</p>
-      <p><strong>Location:South Texas</strong> ${data.location}</p>
-      <p><strong>Number of public repos:23</strong> ${data.public_repos}</p>
+      <p><strong>Name:</strong> ${data.name}</p>
+      <p><strong>Bio:</strong> ${data.bio}</p>
+      <p><strong>Location:</strong> ${data.location}</p>
+      <p><strong>Number of public repos:</strong> ${data.public_repos}</p>
     </div>`
     overviewSection.append(newDiv);
 };
+
+const userRepos = async function () {
+    const fetchRepos = await fetch(`https://api.github.com/users/Alissa-MG/repos?sort=updated&per_page=100`);
+        const repoData = await fetchRepos.json();
+    
+};
+console.log(repoData);
+userRepos();
