@@ -26,14 +26,14 @@ const displayUserInfo = function (data) {
       <p><strong>Bio:</strong> ${data.bio}</p>
       <p><strong>Location:</strong> ${data.location}</p>
       <p><strong>Number of public repos:</strong> ${data.public_repos}</p>
-    </div>`
+    </div>`;
     overviewSection.append(newDiv);
 };
 
 const userRepos = async function () {
-    const fetchRepos = await fetch(`https://api.github.com/users/Alissa-MG/repos?sort=updated&per_page=100`);
-        const repoData = await fetchRepos.json();
-    
+    const fetchRepos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+    const repoData = await fetchRepos.json();
+    console.log(repoData);
 };
-console.log(repoData);
-userRepos();
+
+//userRepos();
