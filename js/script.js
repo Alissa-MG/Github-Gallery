@@ -2,6 +2,8 @@
 const overviewSection = document.querySelector(".overview");
 const username = "Alissa-MG";
 const repoList = document.querySelector(".repo-list");
+const allRepoData = document.querySelector(".repos");
+const singleRepoData = document.querySelector(".repo-data");
 
 
 const gitUserInfo = async function () {
@@ -52,3 +54,9 @@ const repoInfo = function (repos) {
     }
 };
 
+repoList.addEventListener("click", function (e) {
+    if (e.target.matches("h3")) {
+        const repoName = e.target.innerText;
+        console.log(repoName);
+    }
+});
