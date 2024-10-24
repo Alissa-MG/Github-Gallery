@@ -5,6 +5,8 @@ const repoList = document.querySelector(".repo-list");
 const allRepoData = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
 const allReposContainer = document.querySelector(".repos");
+const galleryButton = document.querySelector(".view-repos");
+const filterInput = document.querySelector(".filter-repos");
 
 const gitUserInfo = async function () {
     const userInfo =await fetch(`https://api.github.com/users/${username}`);
@@ -78,6 +80,7 @@ const specificRepoInfo = async function (repoName) {
     displayRepoInfo(repoInfo, languages);
 };
 const displayRepoInfo = function (repoInfo, languages) {
+    galleryButton.classList.remove("hide");
     repoData.innerHTML = "";
     repoData.classList.remove("hide");
     allReposContainer.classList.add("hide");
@@ -91,3 +94,8 @@ const displayRepoInfo = function (repoInfo, languages) {
         repoData.append(div);
     };
   
+galleryButton.addEventListener("click", function () {
+    allReposContainer.classList.remove("hide");
+    repoData.classList.add("hide");
+    galleryButton.classList.add("hide");
+});
