@@ -3,8 +3,8 @@ const overviewSection = document.querySelector(".overview");
 const username = "Alissa-MG";
 const repoList = document.querySelector(".repo-list");
 const allRepoData = document.querySelector(".repos");
-const singleRepoData = document.querySelector(".repo-data");
-
+const repoData = document.querySelector(".repo-data");
+const allReposContainer = document.querySelector(".repos");
 
 const gitUserInfo = async function () {
     const userInfo =await fetch(`https://api.github.com/users/${username}`);
@@ -74,4 +74,20 @@ const specificRepoInfo = async function (repoName) {
     for (const language in languageData) {
         languages.push(language);
         console.log(languages);
-}}
+}
+    displayRepoInfo(repoInfo, languages);
+};
+const displayRepoInfo = function (repoInfo, languages) {
+    repoData.innerHTML = "";
+    repoData.classList.remove("hide");
+    allReposContainer.classList.add("hide");
+    const div = document.createElement("h3");
+    div.innerHTML = ` <h3>Name: ${repoInfo.name}</h3>
+        //<p>Description:${repoInfo.description}</p>
+        //<p>Default Branch: ${repoInfo.default_branch}</p>
+        //<p>Language: ${languages.join(",")}</p>
+        //<a class="visit" href="${repoInfo.html_url}" target="_blank" 
+        //rel="noreferrer noopener">View Repo on Github!</a>`;
+        repoData.append(div);
+    };
+  
