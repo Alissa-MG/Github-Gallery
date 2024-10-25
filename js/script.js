@@ -100,3 +100,8 @@ galleryButton.addEventListener("click", function () {
     repoData.classList.add("hide");
     galleryButton.classList.add("hide");
 });
+
+filterInput.addEventListener("click", function (e) {
+    const searchText = e.target.value;
+    console.log(searchText);
+});
