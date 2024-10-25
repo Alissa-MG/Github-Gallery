@@ -103,5 +103,16 @@ galleryButton.addEventListener("click", function () {
 
 filterInput.addEventListener("click", function (e) {
     const searchText = e.target.value;
-    console.log(searchText);
+    //console.log(searchText);
+    const repos = document.querySelectorAll(".repo");
+    const searchLowerText =searchText.toLowerCase();
+    
+    for (const repo of repos) {
+        const repoLowerText = repo.innerText.toLowerCase();
+        if (repoLowerText.includes(searchLowerText)) {
+            repo.classList.remove("hide");
+        } else {
+            repo.classList.add("hide");
+        }
+    }
 });
